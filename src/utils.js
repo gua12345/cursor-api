@@ -12,7 +12,7 @@ async function stringToHex(messages, modelName) {
     return {
       role: msg.role === 'user' ? 1 : 2,
       message_id: uuidv4(),
-      content: typeof msg.content === 'string' ? msg.content : msg.content.text,
+      content: msg.content.text ? msg.content.text : msg.content,
     };
   });
   
