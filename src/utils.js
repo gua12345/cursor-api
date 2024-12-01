@@ -7,6 +7,8 @@ const regex = /<\|BEGIN_SYSTEM\|>.*?<\|END_SYSTEM\|>.*?<\|BEGIN_USER\|>.*?<\|END
 async function stringToHex(messages, modelName) {
   const formattedMessages = messages.map((msg) => {
     console.log(msg);  // 在控制台打印原始消息对象
+    console.log(msg.content);  // 在控制台打印原始消息对象
+    console.log(msg.content.text);  // 在控制台打印原始消息对象
     return {
       role: msg.role === 'user' ? 1 : 2,
       message_id: uuidv4(),
