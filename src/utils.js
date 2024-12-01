@@ -6,6 +6,7 @@ const regex = /<\|BEGIN_SYSTEM\|>.*?<\|END_SYSTEM\|>.*?<\|BEGIN_USER\|>.*?<\|END
 
 async function stringToHex(messages, modelName) {
   const formattedMessages = messages.map((msg) => {
+    console.log(msg);  // 在控制台打印原始消息对象
     return {
       role: msg.role === 'user' ? 1 : 2,
       message_id: uuidv4(),
@@ -27,6 +28,7 @@ async function stringToHex(messages, modelName) {
     summary: '',
     conversationId: uuidv4(),
   };
+  console.log(message);  // 在控制台打印接收到的消息对象
   const errMsg = $root.ChatMessage.verify(message);
   if (errMsg) throw Error(errMsg);
 
