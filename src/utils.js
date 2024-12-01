@@ -8,11 +8,11 @@ async function stringToHex(messages, modelName) {
   const formattedMessages = messages.map((msg) => {
     console.log(msg);  // 在控制台打印原始消息对象
     console.log(msg.content);  // 在控制台打印原始消息对象
-    console.log(msg.content.text);  // 在控制台打印原始消息对象
+    console.log(msg.content[0].text);  // 在控制台打印原始消息对象
     return {
       role: msg.role === 'user' ? 1 : 2,
       message_id: uuidv4(),
-      content: msg.content.text ? msg.content.text : msg.content,
+      content: msg.content[0].text ? msg.content[0].text : msg.content,
     };
   });
   
